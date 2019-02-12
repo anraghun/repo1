@@ -5,7 +5,7 @@
 
 
 variables:
- - group: b
+ - group: ar
 
 steps:
 - task: NuGetToolInstaller@0
