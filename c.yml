@@ -9,6 +9,9 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
+pool:
+  name: random-usercheck
+
 steps:
 - task: NuGetToolInstaller@0
 
