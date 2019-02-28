@@ -5,7 +5,7 @@
 
 
 variables:
- - group: e
+ - group: i
 
 pool:
   name: anraghun-pool2
