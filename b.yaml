@@ -8,7 +8,7 @@ variables:
  - group: e
 
 pool:
-  name: a
+  name: anraghun-pool1
 
 steps:
 - script: echo Hello , world!
