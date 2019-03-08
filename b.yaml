@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4123y
 
 pool:
-  name: anraghun-pool4
+  name: anraghun-pool5
 
 steps:
 - script: echo Hello, world!
