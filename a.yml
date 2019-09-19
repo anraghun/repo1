@@ -17,7 +17,7 @@ stages:
     - task: DownloadSecureFile@1
       displayName: 'Download secure file'
       inputs:
-        secureFile: '53154311-04fb-489e-8d70-4635a29c6818'
+        secureFile: 'a6514fef-2d4e-4c30-a2b7-e1dacb2c1e50'
 
 - stage: Build_2
   jobs:
@@ -31,28 +31,19 @@ stages:
       inputs:
         azureSubscription: 'armconn'
         Action: 'Restart Azure App Service'
-        WebAppName: ajgsbrtest1app
-
-  - job: Job_2
-    displayName: Phase-2
-    condition: succeededOrFailed()
-    pool:
-      name: Default
-    steps:
-    - task: JenkinsDownloadArtifacts@1
-      displayName: 'Download artifacts produced by T1'
-      inputs:
-        jenkinsServerConnection: 'jenkins-new'
-        jobName: T1
+        WebAppName: ajgtestapp
 
 - stage: PPE
+  condition: always()
   jobs:
   - job: Test
+    condition: always()
     pool: 'Hosted'
     steps:
     - script: echo 'Hosted'
     - task: NuGetToolInstaller@0
   - deployment: DeployPPE
+    condition: always()
     environment: Nikhil-Env08
     pool: 'Hosted'
     strategy:
