@@ -1,0 +1,18 @@
+parameters:
+  vgName: ''
+  conName: ''
+
+jobs:
+  - job: Job_1
+    displayName: Phase-1
+    condition: succeeded()
+    pool: Default
+    variables:
+    - group: ${{ parameters.vgName }}
+    steps:
+    - task: AzureAppServiceManage@0
+      displayName: 'Restart Azure App Service: ajgsbrtest1app'
+      inputs:
+        azureSubscription: ${{ parameters.conName }}
+        Action: 'Restart Azure App Service'
+        WebAppName: ajreactapp
