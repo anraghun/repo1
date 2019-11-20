@@ -1,6 +1,7 @@
 parameters:
   vgName: ''
   conName: ''
+  poolName: ''
 
 jobs:
   - job: Job_1
@@ -9,7 +10,7 @@ jobs:
     variables:
     - group: ${{ parameters.vgName }}
     pool:
-      name: Default
+      name: ${{ parameters.poolName }}
     steps:
     - task: AzureAppServiceManage@0
       displayName: 'Restart Azure App Service: ajgsbrtest1app'
