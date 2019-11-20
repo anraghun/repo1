@@ -9,13 +9,12 @@ jobs:
     variables:
     - name: _RunAsInternal
       value: True
+    - group: ${{ parameters.vgName }}
     pool:
       ${{ if eq(variables._RunAsInternal, False) }}:
         name: Default
       ${{ if eq(variables._RunAsInternal, True) }}:
         name: anraghunpool
-    variables:
-    - group: ${{ parameters.vgName }}
     steps:
     - task: AzureAppServiceManage@0
       displayName: 'Restart Azure App Service: ajgsbrtest1app'
