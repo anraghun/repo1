@@ -7,9 +7,9 @@ jobs:
     displayName: Phase-1
     condition: succeeded()
     pool:
-      ${{ if eq(variables._RunAsInternal, False) }}:
+      ${{ if eq(variables._RunAsInternal, false) }}:
         name: Default
-      ${{ if eq(variables._RunAsInternal, True) }}:
+      ${{ if eq(variables._RunAsInternal, true) }}:
         name: anraghunpool
     variables:
     - group: ${{ parameters.vgName }}
