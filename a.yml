@@ -1,0 +1,22 @@
+variables:
+- name: _RunAsInternal
+  value: False
+
+stages:
+- ${{ if eq(variables._RunAsInternal, False) }}:
+  - stage: A
+    jobs:
+    - template: template.yml
+      parameters:
+          vgName: 'a'
+          conName: 'armconn'
+          poolName: 'Default'
+
+- ${{ if eq(variables._RunAsInternal, True) }}:
+  - stage: B
+    jobs:
+    - template: template.yml
+      parameters:
+          vgName: 'a'
+          conName: 'armconn2'
+          poolName: 'anraghunpool'
