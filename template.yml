@@ -8,7 +8,7 @@ jobs:
     condition: succeeded()
     variables:
     - name: _RunAsInternal
-      value: True
+      value: False
     - group: ${{ parameters.vgName }}
     pool:
       ${{ if eq(variables._RunAsInternal, False) }}:
