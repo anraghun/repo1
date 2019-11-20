@@ -2,14 +2,13 @@ parameters:
   vgName: ''
   conName: ''
 
-variables:
-- name: _RunAsInternal
-  value: True
-
 jobs:
   - job: Job_1
     displayName: Phase-1
     condition: succeeded()
+    variables:
+    - name: _RunAsInternal
+      value: True
     pool:
       ${{ if eq(variables._RunAsInternal, False) }}:
         name: Default
