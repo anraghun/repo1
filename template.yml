@@ -6,7 +6,11 @@ jobs:
   - job: Job_1
     displayName: Phase-1
     condition: succeeded()
-    pool: Default
+    pool:
+      ${{ if eq(variables._RunAsPublic, True) }}:
+        name: Default
+      ${{ if eq(variables._RunAsInternal, True) }}:
+        name: anraghunpool
     variables:
     - group: ${{ parameters.vgName }}
     steps:
