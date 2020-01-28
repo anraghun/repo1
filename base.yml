@@ -1,0 +1,14 @@
+stages:
+- stage: A
+  jobs:
+  - job: Job_1
+    displayName: Phase-1
+    condition: succeeded()
+    pool: Default
+    steps:
+    - task: AzureAppServiceManage@0
+      displayName: 'Restart Azure App Service: ajgsbrtest1app'
+      inputs:
+        azureSubscription: 'armconn'
+        Action: 'Restart Azure App Service'
+        WebAppName: ajreactapp
